@@ -41,6 +41,16 @@ Add the newly created layer version to a Node.js 12 runtime Lambda function.
 
 **All these instructions were arranged together for convenience in `deploy.sh`**
 
+
+## Permissions
+
+This extension requires the `cloudwatch:PutMetricData` permission. Example SAM template snippet:
+
+```
+    Policies:
+    - CloudWatchPutMetricPolicy: {}
+```
+
 ## Function Invocation and Extension Execution
 
 When invoking the function, you should now see log messages from the concurrency extension similar to the following:
@@ -62,3 +72,4 @@ When invoking the function, you should now see log messages from the concurrency
     XXXX-XX-XXTXX:XX:XX.XXX-XX:XX    REPORT RequestId: 9ca08945-de9b-46ec-adc6-3fe9ef0d2e8d Duration: 80.36 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 67 MB Init Duration: 297.83 ms
 ```
 # nodejs-concurrency-counter
+# nodejs-concurrency-observer-extension
