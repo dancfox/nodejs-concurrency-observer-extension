@@ -9,19 +9,13 @@ const EventType = {
     SHUTDOWN: 'SHUTDOWN',
 };
 
-function handleShutdown(event) {
+async function handleShutdown(event) {
 
     // Put Custom Metric
     var params = {
         MetricData: [ /* required */
         {
             MetricName: 'CONCURRENCY', /* required */
-            Dimensions: [
-                {
-                Name: 'EXECUTION_ENVIRONMENT',
-                Value: 'PROVISIONED'
-                },
-            ],
             Unit: 'Count',
             Value: -1
             },
@@ -41,7 +35,7 @@ function handleInvoke(event) {
 
 async function putMetric(params) {
     let cw = await cloudwatch.putMetricData(params).promise();
-    console.log("putMetric: " + params);
+    console.log("putMetric: " + JSON.stringify(params));
     console.log(cw);
 }
 
@@ -56,12 +50,6 @@ async function putMetric(params) {
         MetricData: [ /* required */
         {
             MetricName: 'CONCURRENCY', /* required */
-            Dimensions: [
-                {
-                Name: 'EXECUTION_ENVIRONMENT',
-                Value: 'PROVISIONED'
-                },
-            ],
             Unit: 'Count',
             Value: 1
             },

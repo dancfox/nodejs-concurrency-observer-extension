@@ -73,3 +73,4 @@ When invoking the function, you should now see log messages from the concurrency
 ```
 # nodejs-concurrency-counter
 # nodejs-concurrency-observer-extension
+# nodejs-concurrency-observer-extension
