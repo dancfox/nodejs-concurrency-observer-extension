@@ -1,6 +1,16 @@
-# concurrency Extension in Node.js
-The provided code sample demonstrates how to get a basic extension written in Node.js 12 up and running.
+# nodejs-concurrency-observer-extension
 
+The provided code sample is an extension that puts a custom metric into Cloudwatch at init and at shutdown. The purpose of the extension is to measure the number of execution environments that have been initialized by the Lambda service. I wrote it to see how many execution environments actually get initialized through Provisioned Concurrency. 
+
+Answer to my question: PC actually initializes double the number of execution environments requested up to 500 requested (1000 actual) environments. After that the ratio diminishes.
+
+| Requested Provisioned Concurrency	| Actual Provisioned Concurrency (Average of 10 scale outs, IAD) |
+|-----------------------------------|--------------------------------------------------------------- |
+| 500	                              | 1000                                                           |
+| 1000	                             | 1566                                                           |
+| 3000	                             | 3686                                                           |
+| 4500	                             | 4989                                                           |
+	
 > Note: This extension requires the Node.js 12 runtime to be present in the Lambda execution environment of your function.
 
 There are two components to this sample:
@@ -71,6 +81,3 @@ When invoking the function, you should now see log messages from the concurrency
     XXXX-XX-XXTXX:XX:XX.XXX-XX:XX    END RequestId: 9ca08945-de9b-46ec-adc6-3fe9ef0d2e8d
     XXXX-XX-XXTXX:XX:XX.XXX-XX:XX    REPORT RequestId: 9ca08945-de9b-46ec-adc6-3fe9ef0d2e8d Duration: 80.36 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 67 MB Init Duration: 297.83 ms
 ```
-# nodejs-concurrency-counter
-# nodejs-concurrency-observer-extension
-# nodejs-concurrency-observer-extension
