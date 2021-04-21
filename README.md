@@ -1,6 +1,6 @@
 # nodejs-concurrency-observer-extension
 
-The provided code sample is an extension that puts a custom metric into Cloudwatch at init and at shutdown. The purpose of the extension is to measure the number of execution environments that have been initialized by the Lambda service. I wrote it to see how many execution environments actually get initialized through Provisioned Concurrency. 
+The provided code sample is an AWS Lambda extension that puts a custom metric into Cloudwatch at init and at shutdown. The purpose of the extension is to measure the number of execution environments that have been initialized by the Lambda service. I wrote it to see how many execution environments actually get initialized through Provisioned Concurrency. 
 
 Answer to my question: PC actually initializes double the number of execution environments requested up to 500 requested (1000 actual) environments. After that the ratio diminishes.
 
