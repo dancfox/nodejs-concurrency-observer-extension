@@ -31,7 +31,6 @@ The extensions .zip file should contain a root directory called `extensions/`, w
 
 Creating zip package for the extension:
 ```bash
-$ chmod +x extensions/nodejs-concurrency-extension
 $ zip -r extension.zip .
 ```
 
