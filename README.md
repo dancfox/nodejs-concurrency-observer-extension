@@ -22,7 +22,6 @@ Install the extension dependencies locally, which will be mounted along with the
 
 ```bash
 $ cd nodejs-concurrency-extension
-$ chmod +x index.js
 $ npm install
 $ cd ..
 ```
